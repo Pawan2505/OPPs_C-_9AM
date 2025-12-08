@@ -488,49 +488,254 @@
 // }
 
 
-#include<iostream>
-using namespace std;
+// #include<iostream>
+// using namespace std;
 
-// class create
-class Parent{
-    public:
-    string name;
-    int age;
-    static int salary;
+// // class create
+// class Parent{
+//     public:
+//     string name;
+//     int age;
+//     static int salary;
 
-    public:
-    // setter method
-    void setDetails(string name, int age){
-        this->name = name;
-        this->age = age;
-    }
+//     public:
+//     // setter method
+//     void setDetails(string name, int age){
+//         this->name = name;
+//         this->age = age;
+//     }
 
-    // getter method
-    void getDetails(){
-        cout<<"Your name : "<<name<<endl;
-        cout<<"Your age : "<<age<<endl;
-        cout<<"Your salary : "<<salary<<endl;
-    }
+//     // getter method
+//     void getDetails(){
+//         cout<<"Your name : "<<name<<endl;
+//         cout<<"Your age : "<<age<<endl;
+//         cout<<"Your salary : "<<salary<<endl;
+//     }
 
-};
+// };
 
-int Parent::salary = 1000;
+// int Parent::salary = 1000;
 
-int main(){
+// int main(){
 
-    // object create
+//     // object create
 
-    Parent obj[3]; // array of object
+//     Parent obj[3]; // array of object
 
-    obj[0].setDetails("Sachin",26);
-    obj[1].setDetails("Manish",25);
-    obj[2].setDetails("Vivek",24);
+//     obj[0].setDetails("Sachin",26);
+//     obj[1].setDetails("Manish",25);
+//     obj[2].setDetails("Vivek",24);
 
-    obj[1].getDetails();
-    obj[0].getDetails();
-    obj[2].getDetails();
+//     obj[1].getDetails();
+//     obj[0].getDetails();
+//     obj[2].getDetails();
 
-    cout<<"By class : "<<Parent::salary<<endl; // ok
+//     cout<<"By class : "<<Parent::salary<<endl; // ok
 
-}
+// }
+
+
+
+
+// #include<iostream>
+// using namespace std;
+
+// // class create
+// class Parent{
+//     public:
+//     string name;
+//     int age;
+//     static int salary;
+
+//     public:
+//     // setter method
+//     void setDetails(string name, int age){
+//         this->name = name;
+//         this->age = age;
+//     }
+
+//     // getter method
+//     void getDetails(){
+//         cout<<"Your name : "<<name<<endl;
+//         cout<<"Your age : "<<age<<endl;
+//         cout<<"Your salary : "<<salary<<endl;
+//     }
+
+//     static void display(){
+//         // cout<<"Name : "<<name<<endl; // NOt Ok
+//         cout<<"Salary : "<<salary<<endl;
+//     }
+
+// };
+
+// int Parent::salary = 1000;
+
+// int main(){
+
+//     // object create
+
+//     Parent obj[3]; // array of object
+
+//     obj[0].setDetails("Sachin",26);
+//     obj[1].setDetails("Manish",25);
+//     obj[2].setDetails("Vivek",24);
+
+//     obj[1].getDetails();
+//     obj[0].getDetails();
+//     obj[2].getDetails();
+
+//     cout<<"By class : "<<Parent::salary<<endl; // ok
+
+//     // obj->display();
+
+//     Parent::display();
+// }
+
+
+// #include<iostream>
+// using namespace std;
+
+// // class create
+// class Parent{
+//     public:
+//     string name;
+//     int age;
+//     static int salary;
+
+//     public:
+//     // setter method
+//     void setDetails(string name, int age){
+//         this->name = name;
+//         this->age = age;
+//     }
+
+//     // getter method
+//     void getDetails(){
+//         cout<<"Your name : "<<name<<endl;
+//         cout<<"Your age : "<<age<<endl;
+//         cout<<"Your salary : "<<salary<<endl;
+//     }
+
+//     static void display(){
+//         // cout<<"Name : "<<name<<endl; // NOt Ok
+//         cout<<"Salary : "<<salary<<endl;
+//     }
+
+// };
+
+// int Parent::salary = 1000;
+
+// int main(){
+
+//     // object create
+
+//     Parent obj[3]; // array of object
+
+//     obj[0].setDetails("Sachin",26);
+//     obj[1].setDetails("Manish",25);
+//     obj[2].setDetails("Vivek",24);
+
+//     obj[1].getDetails();
+//     obj[0].getDetails();
+//     obj[2].getDetails();
+
+//     cout<<"By class : "<<Parent::salary<<endl; // ok
+
+//     // obj->display();
+
+//     Parent::display();
+// }
+
+
+// #include<iostream>
+// using namespace std;
+
+// class Student{
+//     public:
+//     // constructor -> parameterless constructor
+//     Student(){
+//         cout<<"Student constructor ... "<<endl;
+//     }
+    
+// };
+
+// int main(){
+
+//     Student s1; // create object -> autometically invoke constructor
+
+// }
+
+
+
+// #include<iostream>
+// using namespace std;
+
+// int add(int x , int y){ // x,y -> parameter
+
+// }
+
+// int main(){
+//     add(10,30);  // 10,30 -> argument
+// }
+
+// #include<iostream>
+// using namespace std;
+
+// class Student{
+//     public:
+//     // Data member
+//     string name;
+//     double age;
+//     int salary = 23435;
+
+//     // constructor -> parameterless constructor
+//     Student(){
+//         cout<<"Student constructor ... "<<endl;
+//         name = "Pawan";
+//         age=24;
+//         salary = 3846364;
+//     }
+
+//     // parametrised constructor
+//     Student(string name, int age){
+//         cout<<" int parametrised constructor"<<endl;
+//         this->name = name;
+//         this->age = age;
+//     }
+//     Student(string name, double age){
+//         cout<<" double parametrised constructor"<<endl;
+//         this->name = name;
+//         this->age = age;
+//     }
+//     // parametrised constructor
+//     Student(string name, int age,int salary){
+//         cout<<"Three parametrised constructor"<<endl;
+//         this->name = name;
+//         this->age = age;
+//         this->salary = salary;
+//     }
+
+//     void details(){
+//         cout<<"Name : "<<name<<endl;
+//         cout<<"Age : "<<age<<endl;
+//         cout<<"Salary : "<<salary<<endl;
+//     }
+ 
+// };
+
+// int main(){
+
+//     Student s1("Manish",25); // create object -> autometically invoke constructor
+
+//     s1.details();
+
+//     // Student s2;
+//     // s2.details();
+
+//     // Student s3("Pankaj",30,749283);
+
+
+//     // s3.details();
+
+// }
 

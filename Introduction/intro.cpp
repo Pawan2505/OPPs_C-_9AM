@@ -739,3 +739,195 @@
 
 // }
 
+
+
+
+// #include<iostream>
+// using namespace std;
+
+// int add(int x , int y){ // x,y -> parameter
+
+// }
+
+// int main(){
+//     add(10,30);  // 10,30 -> argument
+// }
+
+// #include<iostream>
+// using namespace std;
+
+// class Student{
+//     public:
+//     // Data member
+//     string name;
+//     double age;
+//     int salary = 23435;
+
+//     // constructor -> parameterless constructor
+//     Student(){
+//         cout<<"Student constructor ... "<<endl;
+//         name = "Pawan";
+//         age=24;
+//         salary = 3846364;
+//     }
+
+//     // parametrised constructor
+//     Student(string name, int age){
+//         cout<<" int parametrised constructor"<<endl;
+//         this->name = name;
+//         this->age = age;
+//     }
+//     Student(string name, double age){
+//         cout<<" double parametrised constructor"<<endl;
+//         this->name = name;
+//         this->age = age;
+//     }
+//     // parametrised constructor
+//     Student(string name, int age,int salary){
+//         cout<<"Three parametrised constructor"<<endl;
+//         this->name = name;
+//         this->age = age;
+//         this->salary = salary;
+//     }
+
+//     void details(){
+//         cout<<"Name : "<<name<<endl;
+//         cout<<"Age : "<<age<<endl;
+//         cout<<"Salary : "<<salary<<endl;
+//     }
+ 
+// };
+
+// int main(){
+
+//     Student s1("Manish",25); // create object -> autometically invoke constructor
+
+//     s1.details();
+
+//     // Student s2;
+//     // s2.details();
+
+//     // Student s3("Pankaj",30,749283);
+
+
+//     // s3.details();
+
+// }
+
+
+
+// distructor
+
+// #include<iostream>
+
+// using namespace std;
+
+// class Vehical{
+//     public:
+//     int srno;
+    
+//     // constructor
+//     Vehical(int srno){
+//         this->srno = srno;
+//     }
+
+//     void display(){
+//         cout<<"srno : "<<srno<<endl;
+//     }
+
+//     // Destructor
+
+//     // distructor is same as constructor name with ~ symbol
+//     // it is used to free the memory allocated to object
+//     // it is called autometically when object goes out of scope
+//     // it has no return type and no parameters
+//     // it is called only once for each object
+//     // it cannot be overloaded
+//     // it is used to clean up resources like closing files, releasing memory, etc.
+//     // if you don't define a destructor, the compiler provides a default destructor
+
+//     ~Vehical(){
+//        cout<<"Destructor is called..."<<endl;
+//     }
+
+// };
+
+// int main(){
+
+//     Vehical v1(123);
+//     Vehical v2(112233);
+
+//     v1.display();
+//     v2.display();
+
+// }
+
+
+// #include<iostream>
+
+// using namespace std;
+
+// class Vehical{
+//     public:
+//     int srno;
+    
+//     // constructor
+//     Vehical(int srno){
+//         this->srno = srno;
+//     }
+
+//     void display(){
+//         cout<<"srno : "<<srno<<endl;
+//     }
+//     ~Vehical(){
+//        cout<<"Destructor is called..."<<endl;
+//     }
+
+// };
+
+// int main(){
+
+//     Vehical v1(123);
+//     Vehical v2(112233);
+
+//     v1.display();
+//     v2.display();
+//     v1.display();
+
+// }
+
+
+#include<iostream>
+
+using namespace std;
+
+class Vehical{
+    public:
+    int *srno;
+    
+    // constructor
+    Vehical(int srno){
+        this->srno = new int;
+        *this->srno = srno;
+    }
+
+    void display(){
+        cout<<"srno : "<<*srno<<endl;
+    }
+    ~Vehical(){
+       cout<<"Destructor is called..."<<endl;
+       delete srno;
+       cout<<"SRNO : "<<*srno<<endl;
+    }
+
+};
+
+int main(){
+
+    Vehical *v1 = new Vehical(123);
+    
+    v1->display();
+
+    delete v1;
+
+}

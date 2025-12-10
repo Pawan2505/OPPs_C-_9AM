@@ -897,37 +897,132 @@
 // }
 
 
-#include<iostream>
+// #include<iostream>
 
+// using namespace std;
+
+// class Vehical{
+//     public:
+//     int *srno;
+    
+//     // constructor
+//     Vehical(int srno){
+//         this->srno = new int;
+//         *this->srno = srno;
+//     }
+
+//     void display(){
+//         cout<<"srno : "<<*srno<<endl;
+//     }
+//     ~Vehical(){
+//        cout<<"Destructor is called..."<<endl;
+//        delete srno;
+//        cout<<"SRNO : "<<*srno<<endl;
+//     }
+
+// };
+
+// int main(){
+
+//     Vehical *v1 = new Vehical(123);
+    
+//     v1->display();
+
+//     delete v1;
+
+// }
+
+
+// - Reference Variable : 
+
+// what is reference variable in C++?
+
+// A reference variable in C++ is an alias for another variable.
+// It is created using the '&' symbol and must be initialized when declared.
+// Once a reference is established to a variable, it cannot be changed to refer to another variable.
+// Reference variables are often used to pass arguments to functions by reference, allowing the function to modify the original variable's value without making a copy.
+
+
+// #include<iostream>
+// using namespace std;
+
+// int display(int &x){
+
+//     cout<<"The value of X is : "<<x<<endl;
+
+//     x = 15;
+
+//     cout<<"&x value : "<<&x<<endl;
+
+
+//   cout<<"The value of X is : "<<x<<endl;
+
+// }
+
+// int main(){
+//     int n  = 10;
+//     cout<<"&n : "<<&n<<endl;
+//     cout<<"The value of n is : "<<n<<endl;
+//     display(n);
+//     cout<<"The value of n is : "<<n<<endl;
+// }
+
+
+
+// Copy Constructor : 
+
+// what is copy constructor in C++?
+
+// A copy constructor in C++ is a special constructor that initializes a new object as a copy of an existing object.
+
+// It has the following characteristics:
+
+// It takes a reference to an object of the same class as its parameter.
+
+// If not explicitly defined, the compiler provides a default copy constructor that performs a shallow copy.
+
+// It is used when an object is passed by value, returned from a function, or explicitly copied.
+// A user-defined copy constructor can be implemented to perform a deep copy, especially when the class contains pointer members to manage dynamic memory.
+
+
+// diffrence between shallow copy constructor and deep copy constructor?
+
+// Shallow Copy Constructor:
+// memory allocation is not done for pointer members. they point to the same memory location as the original object.
+
+// deep copy constructor:
+// memory allocation is done for pointer members. they point to different memory locations.
+
+
+// shallow Copy
+
+#include<iostream>
 using namespace std;
 
-class Vehical{
+class DiamondCompany{
     public:
-    int *srno;
-    
-    // constructor
-    Vehical(int srno){
-        this->srno = new int;
-        *this->srno = srno;
+        int id;
+        string name;
+
+    DiamondCompany(int id, string name){
+        this->id = id;
+        this->name = name;
     }
 
     void display(){
-        cout<<"srno : "<<*srno<<endl;
+        cout<<"Id : "<<id<<endl;
+        cout<<"Name : "<<name<<endl;
     }
-    ~Vehical(){
-       cout<<"Destructor is called..."<<endl;
-       delete srno;
-       cout<<"SRNO : "<<*srno<<endl;
-    }
-
 };
 
 int main(){
 
-    Vehical *v1 = new Vehical(123);
-    
-    v1->display();
+    DiamondCompany diamond(1,"kohinoor");
 
-    delete v1;
+    // diamond.display();
+
+    DiamondCompany seconddiamond = diamond;
+
+    seconddiamond.display();
 
 }

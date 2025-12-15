@@ -996,33 +996,256 @@
 
 // shallow Copy
 
+// #include<iostream>
+// using namespace std;
+
+// class DiamondCompany{
+//     public:
+//         int id;
+//         string name;
+
+//     DiamondCompany(int id, string name){
+//         this->id = id;
+//         this->name = name;
+//     }
+
+//     void display(){
+//         cout<<"Id : "<<id<<endl;
+//         cout<<"Name : "<<name<<endl;
+//     }
+// };
+
+// int main(){
+
+//     DiamondCompany diamond(1,"kohinoor");
+
+//     // diamond.display();
+
+//     DiamondCompany seconddiamond = diamond;
+
+//     seconddiamond.display();
+
+// }
+
+
+// #include<iostream>
+// using namespace std;
+
+// class DiamondCompany{
+//     public:
+//         int id;
+//         string name;
+
+//     DiamondCompany(int id, string name){
+//         this->id = id;
+//         this->name = name;
+//     }
+
+//     // copy constructor
+
+//     DiamondCompany(DiamondCompany const &object){
+//         cout<<"Copy constructor called..."<<endl;
+//         this->id = object.id;
+//         this->name = object.name;
+//     }
+
+//     void display(){
+//         cout<<"Id : "<<id<<endl;
+//         cout<<"Name : "<<name<<endl;
+//     }
+// };
+
+// int main(){
+
+//     DiamondCompany diamond(1,"kohinoor");
+
+//     diamond.display();
+
+//     DiamondCompany seconddiamond = diamond;
+
+//     seconddiamond.display();
+
+// }
+
+
+
+
+
+// #include<iostream>
+// using namespace std;
+
+// class DiamondCompany{
+//     public:
+//         int id;
+//         string *name;
+
+//     DiamondCompany(int id, string name){
+//         cout<<"Parametrised constructor..."<<endl;
+//         this->id = id;
+//         this->name = new string(name);
+       
+//     }
+
+//     // copy constructor
+
+//     DiamondCompany(DiamondCompany const &object){
+//         cout<<"Copy constructor called..."<<endl;
+//         this->id = object.id;
+//         this->name = new string();
+//         name = object.name;
+        
+//     }
+
+//     void display(){
+//         cout<<"Id : "<<id<<endl;
+//         cout<<"Name : "<<*name<<endl;
+//         cout<<"Name : "<<name<<endl;
+//     }
+// };
+
+// int main(){
+
+//     DiamondCompany diamond(1,"Pawan");
+
+//     diamond.display();
+
+//     DiamondCompany seconddiamond = diamond;
+
+//     seconddiamond.display();
+
+// }
+
+
+
+// deep copy constructor
+
+
+
+
+// #include<iostream>
+// using namespace std;
+
+// class DiamondCompany{
+//     public:
+//         int id;
+//         string *name;
+
+//     DiamondCompany(int id, string name){
+//         cout<<"Parametrised constructor..."<<endl;
+//         this->id = id;
+//         this->name = new string(name);
+       
+//     }
+
+//     //deep copy constructor
+
+//       DiamondCompany(DiamondCompany const &object){
+//         cout<<"deep copy constructor called..."<<endl;
+//         this->id = object.id;
+//         this->name = new string(*object.name);  
+//     }
+
+//     ~DiamondCompany(){
+//         delete name;
+//     }
+
+//     void display(){
+//         cout<<"Id : "<<id<<endl;
+//         cout<<"Name : "<<*name<<endl;
+//         cout<<"Name : "<<name<<endl;
+//     }
+// };
+
+// int main(){
+
+//     DiamondCompany diamond(1,"Pawan");
+
+//     diamond.display();
+
+//     DiamondCompany seconddiamond = diamond;
+
+//     seconddiamond.display();
+
+// }
+
+
+// Inheritance
+
+
+// #include<iostream>
+// using namespace std;
+
+// // Parent class
+// class Teacher{
+//     public:
+
+//     void teach(){
+//          cout<<"Teacher agr students nhi padhte to marta bhee hai."<<endl;
+//     }
+// };
+
+// // Child Class
+// class Student:public Teacher{
+//     public:
+
+//     void display(){
+//         cout<<"Child class..."<<endl;
+//     }
+// };
+
+// int main(){
+
+//     Student s1; // child class object
+//     s1.teach();
+//     s1.display();
+
+// }
+
+
+
 #include<iostream>
 using namespace std;
 
-class DiamondCompany{
+// Parent class
+class Teacher{
     public:
-        int id;
-        string name;
 
-    DiamondCompany(int id, string name){
-        this->id = id;
+    int salary;
+    string name;
+
+    Teacher(int salary,string name){
+        this->salary = salary;
         this->name = name;
     }
 
+    void teach(){
+         cout<<"Teacher agr students nhi padhte to marta bhee hai."<<endl;
+         cout<<"Salary : "<<salary<<endl;
+    }
+};
+
+// Child Class
+class Student:public Teacher{
+    public:
+
+    int age;
+
+    Student(int age, int salary,string name):Teacher(salary,name){
+        this->age = age;
+    }
+
     void display(){
-        cout<<"Id : "<<id<<endl;
+        cout<<"Child class..."<<endl;
+        cout<<"Age : "<<age<<endl;
+        cout<<"salary : "<<salary<<endl;
         cout<<"Name : "<<name<<endl;
     }
 };
 
 int main(){
 
-    DiamondCompany diamond(1,"kohinoor");
-
-    // diamond.display();
-
-    DiamondCompany seconddiamond = diamond;
-
-    seconddiamond.display();
+    Student s1(22,999999,"Pawan"); // child class object
+    s1.teach();
+    s1.display();
 
 }

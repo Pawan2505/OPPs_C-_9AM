@@ -1168,7 +1168,44 @@
 
 // }
 
+// vector -> dynamic array -> memory allocation -> non-contiguous
 
+// #include<iostream>
+// #include<vector>
+// using namespace std;
+
+// int main(){
+//     vector<int>v1 = {12,435,67,78};
+
+//     // v1.push_back(10);
+//     // v1.push_back(20);
+//     // v1.push_back(30);
+//     // v1.push_back(40);
+//     // v1.push_back(50);
+//     // v1.push_back(60);
+
+//     // cout<<"Size of vector : "<<v1.size()<<endl;
+//     // cout<<"Vector empty or not : "<<v1.empty()<<endl;
+
+//     // v1.clear();
+//     // cout<<"Size of vector : "<<v1.size()<<endl;
+//     // cout<<"Vector empty or not : "<<v1.empty()<<endl;
+
+//     // v1.pop_back();
+//     //    cout<<"Size of vector : "<<v1.size()<<endl;
+//     // cout<<"Vector empty or not : "<<v1.empty()<<endl;
+
+//     // cout<<"Top : "<<v1.front()<<endl;
+//     // cout<<"Top : "<<v1.back()<<endl;
+
+//     // for(int element : v1){
+//     //     cout<<element<<" ";
+//     // }
+
+//     for(int i = 0; i < v1.size();i++){
+//         cout<<v1[i]<<" ";
+//     }
+// }
 // Inheritance
 
 
@@ -1203,49 +1240,183 @@
 
 
 
+// #include<iostream>
+// using namespace std;
+
+// // Parent class
+// class Teacher{
+//     public:
+
+//     int salary;
+//     string name;
+
+//     Teacher(int salary,string name){
+//         this->salary = salary;
+//         this->name = name;
+//     }
+
+//     void teach(){
+//          cout<<"Teacher agr students nhi padhte to marta bhee hai."<<endl;
+//          cout<<"Salary : "<<salary<<endl;
+//     }
+// };
+
+// // Child Class
+// class Student:public Teacher{
+//     public:
+
+//     int age;
+
+//     Student(int age, int salary,string name):Teacher(salary,name){
+//         this->age = age;
+//     }
+
+//     // void display(){
+//     //     cout<<"Child class..."<<endl;
+//     //     cout<<"Age : "<<age<<endl;
+//     //     cout<<"salary : "<<salary<<endl;
+//     //     cout<<"Name : "<<name<<endl;
+//     // }
+
+//     void showDetails(){
+//         cout<<"Child class..."<<endl;
+//         cout<<"Age : "<<age<<endl;
+//         cout<<"salary : "<<salary<<endl;
+//         cout<<"Name : "<<name<<endl;
+//     }
+// };
+
+// int main(){
+
+//     Student s1(22,999999,"Pawan"); // child class object
+//     s1.teach();
+//     s1.showDetails();
+
+// }
+
+// single inheritance
+
+// #include<iostream>
+// using namespace std;
+
+// class A{
+//     public:
+
+//     void displayA(){
+//         cout<<"Class A..."<<endl;
+//     }
+// };
+
+// class B:public A{
+
+// };
+
+// int main(){
+//     B b;
+
+//     b.displayA();
+// }
+
+
+// // MultiLevel  inheritance
+
+// #include<iostream>
+// using namespace std;
+
+// class A{
+//     public:
+
+//     void displayA(){
+//         cout<<"Class A..."<<endl;
+//     }
+// };
+
+// class B:public A{
+// public:
+//     void displayB(){
+//         cout<<"Class B..."<<endl;
+//     }
+// };
+
+// class C : public B{
+
+// };
+
+// int main(){
+//   C c;
+//   c.displayA();
+//   c.displayB();
+// }
+
+
+
+// // Multiple  inheritance
+
+// #include<iostream>
+// using namespace std;
+
+// class A{
+//     public:
+
+//     void displayA(){
+//         cout<<"Class A..."<<endl;
+//     }
+// };
+
+// class B{
+// public:
+//     void displayB(){
+//         cout<<"Class B..."<<endl;
+//     }
+// };
+
+// class C :public A, public B{
+
+// };
+
+// int main(){
+//   C c;
+//   c.displayA();
+//   c.displayB();
+// }
+
+
+
+//   Hierarchical inheritance
+
 #include<iostream>
 using namespace std;
 
-// Parent class
-class Teacher{
+class A{
     public:
 
-    int salary;
-    string name;
-
-    Teacher(int salary,string name){
-        this->salary = salary;
-        this->name = name;
-    }
-
-    void teach(){
-         cout<<"Teacher agr students nhi padhte to marta bhee hai."<<endl;
-         cout<<"Salary : "<<salary<<endl;
+    void displayA(){
+        cout<<"Class A..."<<endl;
     }
 };
 
-// Child Class
-class Student:public Teacher{
+class B :public A{
+public:
+    void displayB(){
+        cout<<"Class B..."<<endl;
+    }
+};
+
+class C :public A{
+
     public:
 
-    int age;
-
-    Student(int age, int salary,string name):Teacher(salary,name){
-        this->age = age;
-    }
-
-    void display(){
-        cout<<"Child class..."<<endl;
-        cout<<"Age : "<<age<<endl;
-        cout<<"salary : "<<salary<<endl;
-        cout<<"Name : "<<name<<endl;
+    void displayC(){
+        cout<<"Class C..."<<endl;
     }
 };
 
 int main(){
+  C c;
+  c.displayA();
 
-    Student s1(22,999999,"Pawan"); // child class object
-    s1.teach();
-    s1.display();
+  B b;
 
+  b.displayA();
+ 
 }

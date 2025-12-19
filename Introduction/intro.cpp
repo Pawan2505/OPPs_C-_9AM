@@ -1382,41 +1382,164 @@
 
 
 
-//   Hierarchical inheritance
+// //   Hierarchical inheritance
+
+// #include<iostream>
+// using namespace std;
+
+// class A{
+//     public:
+
+//     void displayA(){
+//         cout<<"Class A..."<<endl;
+//     }
+// };
+
+// class B :public A{
+// public:
+//     void displayB(){
+//         cout<<"Class B..."<<endl;
+//     }
+// };
+
+// class C :public A{
+
+//     public:
+
+//     void displayC(){
+//         cout<<"Class C..."<<endl;
+//     }
+// };
+
+// int main(){
+//   C c;
+//   c.displayA();
+
+//   B b;
+
+//   b.displayA();
+ 
+// }
+
+
+
+
+//   Hybrid inheritance
+
+// #include<iostream>
+// using namespace std;
+
+// class A{
+//     public:
+
+//     void displayA(){
+//         cout<<"Class A..."<<endl;
+//     }
+// };
+
+// class B :virtual public A{
+// public:
+//     void displayB(){
+//         cout<<"Class B..."<<endl;
+//     }
+// };
+
+// class C :virtual public A{
+
+//     public:
+
+//     void displayC(){
+//         cout<<"Class C..."<<endl;
+//     }
+// };
+
+// class D : public B, public C{
+//     public :
+
+//     void displayD(){
+//         cout<<"Class D.."<<endl;
+//     }
+// };
+
+// int main(){
+
+//     D d;
+
+//     d.displayA();
+ 
+// }
+
+// DerivedObjName.ParentClassName::SameNamedMemberFunction(); 
+
+
+// #include<iostream>
+// using namespace std;
+
+// class A{
+//     public:
+
+//     void displayA(){
+//         cout<<"Class A..."<<endl;
+//     }
+// };
+
+// class B : virtual public A{
+// public:
+//     void displayB(){
+//         cout<<"Class B..."<<endl;
+//     }
+// };
+
+// class C :virtual public A{
+
+//     public:
+
+//     void displayC(){
+//         cout<<"Class C..."<<endl;
+//     }
+// };
+
+// class D : public B, public C{
+//     public :
+
+//     void displayD(){
+//         cout<<"Class D.."<<endl;
+//     }
+// };
+
+// int main(){
+
+//     D d;
+
+//     d.A::displayA();
+ 
+// }
+
 
 #include<iostream>
 using namespace std;
 
 class A{
-    public:
-
-    void displayA(){
-        cout<<"Class A..."<<endl;
+    private:
+    void display(){
+        cout<<"Hello Class A"<<endl;
     }
+
+    friend class B;
 };
 
-class B :public A{
-public:
-    void displayB(){
-        cout<<"Class B..."<<endl;
-    }
-};
-
-class C :public A{
-
+class B : public A{
     public:
 
-    void displayC(){
-        cout<<"Class C..."<<endl;
+    void details(){
+        display();
     }
 };
 
 int main(){
-  C c;
-  c.displayA();
 
-  B b;
+    B b;
 
-  b.displayA();
- 
+    b.details();
+
 }

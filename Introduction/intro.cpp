@@ -1516,30 +1516,378 @@
 // }
 
 
-#include<iostream>
-using namespace std;
+// #include<iostream>
+// using namespace std;
 
-class A{
-    private:
-    void display(){
-        cout<<"Hello Class A"<<endl;
-    }
+// class A{
+//     private:
+//     void display(){
+//         cout<<"Hello Class A"<<endl;
+//     }
 
-    friend class B;
-};
+//     friend class B;
+// };
 
-class B : public A{
-    public:
+// class B : public A{
+//     public:
 
-    void details(){
-        display();
-    }
-};
+//     void details(){
+//         display();
+//     }
+// };
 
-int main(){
+// int main(){
 
-    B b;
+//     B b;
 
-    b.details();
+//     b.details();
 
-}
+// }
+
+// #include <iostream>
+// using namespace std;
+
+
+// class Train {
+// private:
+//     int trainNumber;
+//     string trainName;
+//     string source;
+//     string destination;
+//     string trainTime;
+//     static int trainCount;
+
+// public:
+
+//     ~Train() {
+//         trainCount--;
+//     }
+   
+//     void input() {
+//         cout << "Enter Train Number: ";
+//         cin >> trainNumber;
+//         cin.ignore();
+
+//         cout << "Enter Train Name: ";
+//         cin>>trainName;
+//         cin.ignore();
+
+//         cout << "Enter Source: ";
+//         cin>>source;
+//         cout << "Enter Destination: ";
+//         cin>>destination;
+
+//         cout << "Enter Train Time: ";
+//         cin>>trainTime;
+
+//         trainCount++;
+
+//     }
+
+//     void display() {
+//         cout << "Train Number: " << trainNumber << endl;
+//         cout << "Train Name: " << trainName << endl;
+//         cout << "Source: " << source << endl;
+//         cout << "Destination: " << destination << endl;
+//         cout << "Train Time: " << trainTime << endl;
+//     }
+
+//     static int getTrainCount(){
+//         return trainCount;
+//     }
+
+//     int getNumber() {
+//         return trainNumber;
+//     }
+// };
+
+// int Train::trainCount = 0;
+
+
+// class RailwaySystem {
+// private:
+//     Train t[100];   
+//     int total;    
+
+// public:
+//     RailwaySystem() {
+//         total = 0;
+//     }
+
+//     void addTrain() {
+//         t[total++].input();
+//         cout << "Train added successfully!\n";
+//     }
+
+//     void showAll() {
+//         if (total == 0) {
+//             cout << "No train record found!\n";
+//             return;
+//         }
+
+//         for (int i = 0; i < total; i++) {
+//             cout << "\nTrain " << i + 1 << " details:\n";
+//             t[i].display();
+//         }
+//     }
+
+//     void search(int num) {
+//         for (int i = 0; i < total; i++) {
+//             if (t[i].getNumber() == num) {
+//                 cout << "\nTrain Found:\n";
+//                 t[i].display();
+//                 return;
+//             }
+//         }
+//         cout << "Train not found!\n";
+//     }
+// };
+
+// int main() {
+//     RailwaySystem rs;
+//     Train t1;
+//     int choice, num;
+
+//     do {
+//         cout << "\n--- Railway Menu ---\n";
+//         cout << "1. Add Train\n";
+//         cout << "2. Show All Trains\n";
+//         cout << "3. Search Train\n";
+//         cout<<"4. Get Train Count"<<endl;
+//         cout << "5. Exit\n";
+//         cout << "Enter choice: ";
+//         cin >> choice;
+
+//         switch (choice) {
+//         case 1:
+//             rs.addTrain();
+//             break;
+
+//         case 2:
+//             rs.showAll();
+//             break;
+
+//         case 3:
+//             cout << "Enter Train Number: ";
+//             cin >> num;
+//             rs.search(num);
+//             break;
+
+//         case 4:
+//             cout << "Train Count : "<<Train::getTrainCount()<<endl;
+//             break;
+//         case 5:
+//             cout << "Bye Bye \n";
+//             break;
+
+//         default:
+//             cout << "Wrong choice!\n";
+//         }
+
+//     } while (choice != 5);
+
+//     return 0;
+// }
+
+
+// Pointer Object
+
+// Use the Dot (.) operator when you have a direct object (created on the stack).
+
+// Use the Arrow (->) operator when you have a pointer to an object (created on the heap with new).
+
+// Pointer: Ek "Parchi" (Chit) jis par kisi ghar ka address likha hai.
+
+// Dereferencing: Us parchi ko padhkar us ghar tak jaana aur dekhna ki andar kaun rehta hai.
+
+// In C++, the size of an object is determined by its non-static data members, alignment requirements, and the presence of polymorphic features. Here are the core definitions and rules regarding object size in C++ OOP:
+
+// 1. Non-Static Data Members
+// These are the variables defined within a class that belong to each specific instance (object). The size of the object is primarily the sum of the sizes of these members (e.g., int, char, double, or other objects).
+
+// 2. Static Data Members (Exclusion)
+// Static members are not part of the object’s size. They are stored in a separate static memory area (global scope) and are shared by all instances of the class.
+
+// #include<iostream>
+// using namespace std;
+
+// class Student{
+
+// public:
+// int age;
+
+// Student(int age){
+//     this->age = age;
+// }
+
+// void display(){
+//     cout<<"Age : "<<age<<endl;
+// }
+
+// };
+
+// int main(){
+
+//     Student *s1 = new Student(21);
+//     s1->display();
+
+//     delete s1;
+    
+//     s1->display();
+
+//     // Student s1(21);
+
+//     // s1.display();
+
+// }
+
+// Array of Pointer objects
+
+// #include<iostream>
+// using namespace std;
+
+// class Student{
+
+// public:
+// int age;
+
+// Student(int age){
+//     this->age = age;
+// }
+
+// void display(){
+//     cout<<"Age : "<<age<<endl;
+// }
+
+// };
+
+// int main(){
+
+//     Student *s1[2];
+
+//     s1[0] = new Student(21);
+//     s1[1] = new Student(22);
+
+//     s1[0]->display();
+//     s1[1]->display();
+
+//     delete s1[0];
+//     // s1[0] = nullptr;
+//     s1[0] = NULL;
+//     delete s1[1];
+//     // s1[1] = nullptr;
+//     s1[1] = NULL;
+//    s1[1]->display();
+// }
+
+// // OOP Interview Point: Dangling Pointer kya hai?
+// // Definition: Jab kisi pointer se point ki gayi memory delete ho jati hai, lekin pointer abhi bhi us purane address ko hold karke rakhta hai, toh use Dangling Pointer kehte hain. Isse bachne ke liye hum pointer ko nullptr assign karte hain.
+
+//     // delete s1[0];
+//     // s1[0] = nullptr; // Ab s1[0] safe hai
+
+//     // delete s1[1];
+//     // s1[1] = nullptr; // Ab s1[1] kisi galat jagah point nahi kar raha
+
+//     // Agar ab aap s1[1]->display() karenge, toh program turant crash hoga 
+//     // jo ki "silent garbage value" se behtar hai.
+
+
+// Polymorphism : 
+
+// What is polymorphism in C++?
+
+// Polymorphism in C++ is a core concept of Object-Oriented Programming (OOP) that allows objects of different classes to be treated as objects of a common base class. It enables a single interface to represent different underlying forms (data types). The term "polymorphism" means "many forms."
+
+// real - life example of polymorphism?
+// A real-life example of polymorphism is the concept of a "shape." Different shapes like circles, squares, and triangles can all be treated as "shapes." Each shape has its own way of calculating area and perimeter, but they can all be referenced through a common interface (the shape). When you call the method to calculate the area, the correct method for the specific shape is executed based on the actual object type.
+
+// Function Overloading:As seen in your code, having multiple functions with the same name but different parameters.
+
+// #include<iostream>
+// using namespace std;
+
+// class Student{
+//     public : 
+//     string name;
+//    double salary;
+
+//     // constructor -> constructor overloading -> compile time polymorphism
+
+//     Student(){
+//         cout<<"Default Constructor.."<<endl;
+//         name = "Vaibhavi";
+//         salary = 237288723753;
+//     }
+
+//     Student(string name, double salary){
+//           cout<<"Paraeterised Constructor.."<<endl;
+//         this->name = name;
+//         this->salary = salary;
+//     }
+
+//     void display(){
+//         cout<<"Name : "<<name<<endl;
+//         cout<<"Salary : "<<salary<<endl;
+//     }
+
+// };
+
+// int main(){
+
+
+
+//     Student s1("Chintan",784628376827),s2;
+
+//     s2.display();
+
+//     s1.display();
+
+// }
+
+
+// Operator Overloading: Giving special meaning to an operator (like + or <<) for user-defined classes.
+
+
+// #include<iostream>
+// using namespace std;
+
+// class Add{
+// public:
+// int x;
+// int y;
+
+// Add() {
+//         x = 0;
+//         y = 0;
+//     }
+
+// Add(int x, int y){
+//     this->x = x;
+//     this->y = y;
+// }
+
+// Add operator+(const Add & obj){
+//     Add ad;
+//     ad.x = this->x + obj.x; 
+//     ad.y = this->y + obj.y;
+
+//     return ad;
+// }
+
+
+// };
+
+
+// int main(){
+// Add a1(10,20);
+// Add a2(30,40);
+
+// Add a3;
+
+// a3 = a1+a2;
+
+// cout<<"X : "<<a3.x<<endl;
+// cout<<"Y : "<<a3.y<<endl;
+
+// }

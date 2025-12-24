@@ -1,1 +1,1 @@
- s1.teach();
+  delete s1[0];

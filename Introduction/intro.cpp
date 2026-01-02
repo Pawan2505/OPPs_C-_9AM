@@ -2282,4 +2282,432 @@
 // }
 
 
+// // public -> public
 
+// #include<iostream>
+
+// using namespace std;
+
+// class A{
+
+//     public :
+
+//         void display(){
+//             cout<<"Class A"<<endl;
+//         }
+// };
+
+// class B: public  A{
+
+// };
+
+// int main(){
+
+//     B b;
+
+//     b.display();
+
+// }
+
+
+// // public -> private
+
+// #include<iostream>
+
+// using namespace std;
+
+// class A{
+
+//     public :
+
+//         void display(){
+//             cout<<"Class A"<<endl;
+//         }
+// };
+
+// class B: private  A{
+
+
+//     public:
+
+//     void print(){
+//         display();
+//     }
+// };
+
+// int main(){
+
+//     B b;
+
+//     b.print();
+
+// }
+
+// public -> protected
+
+// #include<iostream>
+
+// using namespace std;
+
+// class A{
+
+//     public :
+
+//         void display(){
+//             cout<<"Class A"<<endl;
+//         }
+// };
+
+// class B: protected  A{
+
+
+//     public:
+
+//     void print(){
+//         display();
+//     }
+// };
+
+// int main(){
+
+//     B b;
+
+//     b.print();
+
+// }
+
+// #include<iostream>
+
+// using namespace std;
+
+// class A{
+
+//     public :
+
+//         void display(){
+//             cout<<"Class A"<<endl;
+//         }
+// };
+
+// class B: private  A{
+
+//     public:
+
+//     void print(){
+//         display();
+//     }
+
+// };
+
+// class C : public B{
+
+//     public:
+
+//     void details(){
+//         print();
+//     }
+// };
+
+// int main(){
+
+//     C c;
+
+//     c.details(); 
+
+// }
+
+
+// #include<iostream>
+
+// using namespace std;
+
+// class A{
+
+//     public :
+
+//         void display(){
+//             cout<<"Class A"<<endl;
+//         }
+// };
+
+// class B: protected  A{
+
+//     public:
+
+
+// };
+
+// class C : public B{
+
+//     public:
+
+//     void details(){
+
+//     }
+// };
+
+// int main(){
+
+//     C c;
+
+//     c.details(); 
+
+// }
+
+
+// hybrid inheritance
+
+
+// #include<iostream>
+// using namespace std;
+
+// class A{
+
+//     public :
+
+//     void display(){
+//         cout<<"Class A.."<<endl;
+//     }
+// };
+
+// class B:virtual public A{
+
+// };
+
+// class C :virtual public A{
+
+// };
+
+// class D: public B, public C{
+
+// };
+
+// int main(){
+//     D d;
+
+//     d.display();
+// }
+
+
+
+// - Pointer Object
+
+// - Array of Pointer objects
+
+// - new operator
+
+// - delete operator
+
+
+
+// #include<iostream>
+// using namespace std;
+
+// class A{
+
+//     public :
+
+//     int age;
+
+//     A(int age){
+//         cout<<"A constructor..."<<endl;
+//         this->age = age;
+//     }
+
+//     void display(){
+//         cout<<"Class A.."<<endl;
+//         cout<<"Age : "<<age<<endl;
+//     }
+// };
+
+// int main(){
+
+//     // Pointer Object
+
+//     // A a1(34);
+
+//     A *a = new A(21);  // autometically constructor invoke
+
+//     a->display();
+
+
+//     delete a;
+
+//     a = nullptr;
+
+//     a = new A(22);
+//     a->display();
+
+// }
+
+//  A dangling pointer is a pointer that still holds the memory address of an object after that object has been deleted. 
+// Here is how you resolved it in your code and further modern alternatives:
+// 1. Manual Resolution (What you did)
+// In your code, you followed the standard manual safety procedure:
+// Step 1: Use delete a; to free the heap memory.
+// Step 2: Immediately assign a = nullptr;. 
+
+
+// #include<iostream>
+// using namespace std;
+
+// class A{
+
+//     public :
+
+//     int age;
+
+//     A(int age){
+//         cout<<"A constructor..."<<endl;
+//         this->age = age;
+//     }
+
+//     void display(){
+//         cout<<"Class A.."<<endl;
+//         cout<<"Age : "<<age<<endl;
+//     }
+// };
+
+// int main(){
+
+//     // Pointer Object
+
+//     // A a1(34);
+
+//     A *a[3];  // autometically constructor invoke
+
+//     a[0] = new A(11);
+//     a[1] = new A(12);
+//     a[2] = new A(13);
+
+//     a[0]->display();
+//     a[1]->display();
+//     a[2]->display();
+// }
+
+
+// #include<iostream>
+
+// using namespace std;
+
+
+// class Physics{
+
+//     public :
+//     int force;
+
+//     int friction;
+
+//     double speed(double force, int friction){
+//     cout<<"double int..."<<endl;
+//         return force-friction;
+//     }
+//     double speed(double force, double friction){
+//     cout<<"double..."<<endl;
+//         return force-friction;
+//     }
+
+//     int speed(int force, int friction){
+//         cout<<"int..."<<endl;
+//         return force + friction;
+//     }
+
+// };
+
+// int main(){
+
+//     Physics a;
+
+//     // cout<<a.speed(12,35)<<endl;
+//     // cout<<a.speed(12.2,35.9)<<endl;
+//     cout<<a.speed(12.2,35)<<endl;
+
+// }
+
+
+
+// Operator+ overloading
+
+
+// #include<iostream>
+
+// using namespace std;
+
+
+// class Addition{
+
+//     public :
+
+//     int x;
+//     int y;
+
+//     Addition(){ }
+
+//     Addition(int x, int y){
+//         this->x = x;
+//         this->y = y;
+//     }
+
+//     // operator overloading Cunstructor
+
+//     Addition operator+(Addition &obj){
+//         Addition ad;
+
+//         ad.x = this->x + obj.x;
+//         ad.y = this->y + obj.y;
+
+//         return ad;
+//     }
+
+//     void display(){
+//         cout<<"X : "<<x<<endl;
+//         cout<<"Y : "<<y<<endl;
+//     }
+// };
+
+// int main(){
+
+//     Addition add1(10,20);
+//     Addition add2(30,40);
+
+//     Addition add3 = add1 + add2;
+
+
+//     add3.display();
+
+//     // (10+20i)
+//     // (30+40i)
+
+// }
+
+// override 
+
+#include<iostream>
+using namespace std;
+
+class Fruit{
+    public:
+
+   virtual void display(){
+        cout<<"Class Fruit..."<<endl;
+    }
+};
+
+
+class Apple: public Fruit{
+    public:
+
+    void display()override{
+        cout<<"Class Apple..."<<endl;
+    }
+};
+
+
+int main(){
+
+    Apple ap;
+
+    ap.display();
+
+    return 0;
+}

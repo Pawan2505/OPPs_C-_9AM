@@ -2682,32 +2682,119 @@
 
 // override 
 
+// #include<iostream>
+// using namespace std;
+
+// class Fruit{
+//     public:
+
+//    virtual void display(){
+//         cout<<"Class Fruit..."<<endl;
+//     }
+// };
+
+
+// class Apple: public Fruit{
+//     public:
+
+//     void display()override{
+//         cout<<"Class Apple..."<<endl;
+//     }
+// };
+
+
+// int main(){
+
+//     Apple ap;
+
+//     ap.display();
+
+//     return 0;
+// }
+
+
+
+// #include<iostream>
+
+// using namespace std;
+
+// // function declaration
+
+// int add();
+
+// int main(){
+//     // function invoke
+//      add();
+// }
+
+// // function definition
+// int add(){
+//     cout<<"Hello World"<<endl;
+// }
+
+
+// #include<iostream>
+
+// using namespace std;
+
+// class Student{
+//     public :
+
+//     //    virtual void display() = 0;
+
+//         virtual void print() = 0;
+
+// };
+
+// class Stud : public Student{
+
+//     public :
+
+//     void print()override{
+//         cout<<"Pure virtural function implemented."<<endl;
+//     }
+// };
+
+// int main(){
+    
+//     Stud st;
+
+//     st.print();
+// }
+
 #include<iostream>
+
 using namespace std;
-
-class Fruit{
-    public:
-
-   virtual void display(){
-        cout<<"Class Fruit..."<<endl;
-    }
-};
-
-
-class Apple: public Fruit{
-    public:
-
-    void display()override{
-        cout<<"Class Apple..."<<endl;
-    }
-};
-
 
 int main(){
 
-    Apple ap;
+    int numerator;
+    cout<<"Enter Numerator : ";
+    cin>>numerator;
 
-    ap.display();
+    int denomerator;
+    cout<<"Enter Denomerator : ";
+    cin>>denomerator;
 
-    return 0;
+    try{
+
+        if(denomerator == 0){
+            throw("denomerator should not be zero.");
+        }else if(denomerator<0){
+            throw(denomerator);
+        }
+        int result  = numerator/denomerator;
+        cout<<"Result : "<<result<<endl;
+    }
+    catch(char const* ex){
+        cout<<ex<<endl;
+    }
+    catch(...){
+        cout<<"Invalid denomerator! : "<<endl;
+    }
+    
+    
+    // catch(int data){
+    //     cout<<"You are enter negative value : "<<data<<endl;
+    // }
 }
